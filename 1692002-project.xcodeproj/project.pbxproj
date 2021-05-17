@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E942A9C2652797900E9105F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E942A9B2652797900E9105F /* TestViewController.swift */; };
 		9E2EE39D26493BF90000B6CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EE39C26493BF90000B6CF /* AppDelegate.swift */; };
 		9E2EE39F26493BF90000B6CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EE39E26493BF90000B6CF /* SceneDelegate.swift */; };
 		9E2EE3A126493BF90000B6CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EE3A026493BF90000B6CF /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E942A9B2652797900E9105F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9E2EE39926493BF90000B6CF /* 1692002-project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "1692002-project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E2EE39C26493BF90000B6CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E2EE39E26493BF90000B6CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				9E2EE3A726493BFC0000B6CF /* LaunchScreen.storyboard */,
 				9E2EE3AA26493BFC0000B6CF /* Info.plist */,
 				9E2EE3B2264940B80000B6CF /* DataModelController.swift */,
+				8E942A9B2652797900E9105F /* TestViewController.swift */,
 			);
 			path = "1692002-project";
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E942A9C2652797900E9105F /* TestViewController.swift in Sources */,
 				9E2EE3A126493BF90000B6CF /* ViewController.swift in Sources */,
 				9E2EE39D26493BF90000B6CF /* AppDelegate.swift in Sources */,
 				9E2EE39F26493BF90000B6CF /* SceneDelegate.swift in Sources */,

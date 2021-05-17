@@ -8,30 +8,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Test View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_692002_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TestViewController" customModule="_692002_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xvl-ev-Urk" userLabel="CanvasView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xvl-ev-Urk" userLabel="CanvasView" customClass="PKCanvasView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njU-Ue-97o">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="art-Us-SrA">
+                                        <connections>
+                                            <action selector="SaveButton:" destination="BYZ-38-t0r" id="LEj-vf-dmR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Toggle" id="PEd-rd-5QM">
+                                        <connections>
+                                            <action selector="toggleButton:" destination="BYZ-38-t0r" id="eRQ-TG-dEn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xvl-ev-Urk" secondAttribute="trailing" id="I3v-8a-FM4"/>
-                            <constraint firstItem="Xvl-ev-Urk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TeY-lQ-veE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xvl-ev-Urk" secondAttribute="bottom" id="e9w-om-HXt"/>
-                            <constraint firstItem="Xvl-ev-Urk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mqM-1y-DgD"/>
+                            <constraint firstAttribute="bottom" secondItem="Xvl-ev-Urk" secondAttribute="bottom" id="7PA-2W-Ne3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xvl-ev-Urk" secondAttribute="trailing" id="EDo-Cm-z5b"/>
+                            <constraint firstItem="Xvl-ev-Urk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MAC-JE-BsT"/>
+                            <constraint firstItem="njU-Ue-97o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Yue-hQ-GVh"/>
+                            <constraint firstItem="Xvl-ev-Urk" firstAttribute="top" secondItem="njU-Ue-97o" secondAttribute="bottom" id="ZM3-wu-Omm"/>
+                            <constraint firstItem="njU-Ue-97o" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eVg-gf-6ol"/>
+                            <constraint firstItem="njU-Ue-97o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sjh-I9-4Bi"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="canvasView" destination="Xvl-ev-Urk" id="Sgw-Di-miZ"/>
+                        <outlet property="canvasView" destination="Xvl-ev-Urk" id="MUU-UT-egO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
