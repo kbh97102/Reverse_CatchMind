@@ -8,22 +8,32 @@
 import UIKit
 import PencilKit
 import PhotosUI
+import CoreML
+import Vision
 
 class TestViewController: UIViewController , PKCanvasViewDelegate, PKToolPickerObserver{
 
+    @IBOutlet weak var questionLabel: UILabel!
 
     @IBOutlet weak var canvasView: PKCanvasView!
     
-    private let canvasWidth:CGFloat = 768
-    private let canvasOverScrollHeight = 500
+
     private let toolPicker = PKToolPicker()
-    
+    private var request: VNCoreMLRequest?
+    private var question: Question?
+    private var answer: String = ""
+
     
     var drawing = PKDrawing()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPkCanvas()
+        
+        question = Question()
+        request =  createCoreMLRequest(modelName: "SqueezeNet", modelExt: "mlmodelc", comletionHandler: imageClassificationHandler(request:error:))
+        
+        displayQuestion()
     }
     
     private func setUpPkCanvas(){
@@ -42,12 +52,7 @@ class TestViewController: UIViewController , PKCanvasViewDelegate, PKToolPickerO
     }
     
     @IBAction func SaveButton(_ sender: UIBarButtonItem) {
-        UIGraphicsBeginImageContextWithOptions(canvasView.bounds.size, false, UIScreen.main.scale)
-        canvasView.drawHierarchy(in: canvasView.bounds, afterScreenUpdates: true)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
+        let image = GetImage()
         if image != nil{
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAsset(from: image!)
@@ -56,9 +61,58 @@ class TestViewController: UIViewController , PKCanvasViewDelegate, PKToolPickerO
             })
         }
     }
+    
+    @IBAction func SubmitButton(_ sender: UIBarButtonItem) {
+        let image = GetImage()
+        if image != nil{
 
-    @IBAction func toggleButton(_ sender: UIBarButtonItem) {
+            let handler = VNImageRequestHandler(ciImage : CIImage(image: image!)!)
+            try! handler.perform([request!])
+        }
         
+        let alert = self.storyboard?.instantiateViewController(identifier: "ResultView") as! ResultViewController
+        
+        present(alert, animated: true, completion: nil)
     }
 
+    private func GetImage() -> UIImage?{
+        UIGraphicsBeginImageContextWithOptions(canvasView.bounds.size, false, UIScreen.main.scale)
+        canvasView.drawHierarchy(in: canvasView.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
+extension TestViewController{
+    func createCoreMLRequest(modelName :String, modelExt: String, comletionHandler : @escaping (VNRequest, Error?) -> Void) -> VNCoreMLRequest?{
+        guard let modelURL = Bundle.main.url(forResource: modelName, withExtension: modelExt) else{
+            return nil
+        }
+        
+        guard let vnCoreMLModel = try? VNCoreMLModel(for: MLModel(contentsOf: modelURL)) else {
+            return nil
+        }
+        
+        return VNCoreMLRequest(model: vnCoreMLModel, completionHandler: comletionHandler)
+    }
+    
+    func imageClassificationHandler(request: VNRequest, error:Error?){
+        guard let results = request.results as? [VNClassificationObservation] else {
+            return
+        }
+        
+        if let topResult = results.first{
+            //TODO Display Result
+            
+        }
+    }
+}
+
+extension TestViewController{
+    func displayQuestion(){
+        answer = question!.getQuestion()
+        questionLabel.text = answer
+    }
 }
