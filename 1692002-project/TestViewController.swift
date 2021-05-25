@@ -29,10 +29,19 @@ class TestViewController: UIViewController , PKCanvasViewDelegate, PKToolPickerO
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPkCanvas()
-        
         question = Question()
+   
         request =  createCoreMLRequest(modelName: "SqueezeNet", modelExt: "mlmodelc", comletionHandler: imageClassificationHandler(request:error:))
         
+        displayQuestion()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(nextQuestion), name: Notification.Name("nextButtonCallBack"), object: nil)
+    }
+    
+    @objc
+    func nextQuestion(){
+        drawing = PKDrawing()
+        canvasView.drawing = drawing
         displayQuestion()
     }
     
@@ -70,9 +79,6 @@ class TestViewController: UIViewController , PKCanvasViewDelegate, PKToolPickerO
             try! handler.perform([request!])
         }
         
-        let alert = self.storyboard?.instantiateViewController(identifier: "ResultView") as! ResultViewController
-        
-        present(alert, animated: true, completion: nil)
     }
 
     private func GetImage() -> UIImage?{
@@ -104,10 +110,15 @@ extension TestViewController{
         }
         
         if let topResult = results.first{
-            //TODO Display Result
+
+            let alert = self.storyboard?.instantiateViewController(identifier: "ResultView") as! ResultViewController
             
+            alert.test(answer: answer, result: topResult.identifier)
+            
+            present(alert, animated: true, completion: nil)
         }
     }
+    
 }
 
 extension TestViewController{

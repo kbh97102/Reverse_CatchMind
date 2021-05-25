@@ -90,13 +90,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfT-go-vYv">
                                 <rect key="frame" x="50" y="244" width="314" height="418"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzR-rf-tub">
-                                        <rect key="frame" x="0.0" y="382" width="314" height="36"/>
-                                        <color key="backgroundColor" systemColor="linkColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Retry"/>
-                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="axU-8L-i2V">
                                         <rect key="frame" x="20" y="121" width="274" height="30"/>
                                         <subviews>
@@ -137,19 +130,49 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WSy-j7-5B0">
+                                        <rect key="frame" x="0.0" y="342" width="314" height="76"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzR-rf-tub">
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="76"/>
+                                                <color key="backgroundColor" systemColor="linkColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Retry"/>
+                                                <connections>
+                                                    <action selector="retry:" destination="f3T-G8-yCw" eventType="touchUpInside" id="pL0-6L-3I2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="RCE-UO-boD">
+                                                <rect key="frame" x="157" y="0.0" width="157" height="76"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Next"/>
+                                                <connections>
+                                                    <action selector="nextButton:" destination="f3T-G8-yCw" eventType="touchUpInside" id="P2Y-gj-sgj"/>
+                                                    <action selector="retry:" destination="f3T-G8-yCw" eventType="touchUpInside" id="kgN-qb-3Pd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="314" id="D14-tV-VIF"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="FzR-rf-tub" firstAttribute="leading" secondItem="qfT-go-vYv" secondAttribute="leading" id="37r-bb-OaC"/>
                                     <constraint firstItem="axU-8L-i2V" firstAttribute="leading" secondItem="qfT-go-vYv" secondAttribute="leading" constant="20" id="4WX-O5-qYM"/>
                                     <constraint firstItem="axU-8L-i2V" firstAttribute="top" secondItem="v2I-KH-6Hb" secondAttribute="bottom" constant="50" id="Jvq-ed-66e"/>
                                     <constraint firstItem="v2I-KH-6Hb" firstAttribute="top" secondItem="qfT-go-vYv" secondAttribute="top" constant="30" id="KIf-Gu-Lg7"/>
                                     <constraint firstItem="46n-Gz-aS9" firstAttribute="leading" secondItem="qfT-go-vYv" secondAttribute="leading" constant="20" id="KU7-3d-T3d"/>
-                                    <constraint firstAttribute="trailing" secondItem="FzR-rf-tub" secondAttribute="trailing" id="SZS-Pa-Ebs"/>
+                                    <constraint firstItem="WSy-j7-5B0" firstAttribute="leading" secondItem="qfT-go-vYv" secondAttribute="leading" id="NAm-qG-ryW"/>
                                     <constraint firstItem="46n-Gz-aS9" firstAttribute="top" secondItem="axU-8L-i2V" secondAttribute="bottom" constant="80" id="XU0-zq-3IB"/>
                                     <constraint firstAttribute="trailing" secondItem="46n-Gz-aS9" secondAttribute="trailing" constant="20" id="a4x-LR-fIR"/>
+                                    <constraint firstAttribute="trailing" secondItem="WSy-j7-5B0" secondAttribute="trailing" id="eiG-Qf-pTh"/>
+                                    <constraint firstAttribute="bottom" secondItem="WSy-j7-5B0" secondAttribute="bottom" id="jqy-Te-1ot"/>
                                     <constraint firstAttribute="trailing" secondItem="v2I-KH-6Hb" secondAttribute="trailing" constant="8" id="lf2-R5-gbk"/>
-                                    <constraint firstAttribute="bottom" secondItem="FzR-rf-tub" secondAttribute="bottom" id="vpn-Of-dBh"/>
                                     <constraint firstAttribute="trailing" secondItem="axU-8L-i2V" secondAttribute="trailing" constant="20" id="xQk-Ln-Vdp"/>
                                     <constraint firstItem="v2I-KH-6Hb" firstAttribute="leading" secondItem="qfT-go-vYv" secondAttribute="leading" constant="8" id="zKI-8a-hER"/>
                                 </constraints>
@@ -164,6 +187,10 @@
                             <constraint firstItem="sDm-7E-ysa" firstAttribute="bottom" secondItem="qfT-go-vYv" secondAttribute="bottom" constant="200" id="lDf-rL-0gN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="7om-Cz-xP8" id="WXf-dg-H0v"/>
+                        <outlet property="reslutLabel" destination="VsY-0z-hqY" id="CL2-eD-K6B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1td-LP-pDv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,6 +206,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

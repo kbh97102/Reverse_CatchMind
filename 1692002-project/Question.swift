@@ -10,6 +10,7 @@ import Foundation
 
 class Question {
     
+
     private var list: [String]
     private var index = 0
     
@@ -22,4 +23,5 @@ class Question {
         index += 1
         return question
     }
+    
 }
