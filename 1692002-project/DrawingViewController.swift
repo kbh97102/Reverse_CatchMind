@@ -11,7 +11,7 @@ import PhotosUI
 import CoreML
 import Vision
 
-class TestViewController: UIViewController , PKCanvasViewDelegate, PKToolPickerObserver{
+class DrawingViewController: UIViewController , PKCanvasViewDelegate, PKToolPickerObserver{
 
     @IBOutlet weak var questionLabel: UILabel!
 
@@ -91,7 +91,7 @@ class TestViewController: UIViewController , PKCanvasViewDelegate, PKToolPickerO
     }
 }
 
-extension TestViewController{
+extension DrawingViewController{
     func createCoreMLRequest(modelName :String, modelExt: String, comletionHandler : @escaping (VNRequest, Error?) -> Void) -> VNCoreMLRequest?{
         guard let modelURL = Bundle.main.url(forResource: modelName, withExtension: modelExt) else{
             return nil
@@ -121,7 +121,7 @@ extension TestViewController{
     
 }
 
-extension TestViewController{
+extension DrawingViewController{
     func displayQuestion(){
         answer = question!.getQuestion()
         questionLabel.text = answer

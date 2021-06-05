@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E942A9C2652797900E9105F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E942A9B2652797900E9105F /* TestViewController.swift */; };
+		8E942A9C2652797900E9105F /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E942A9B2652797900E9105F /* DrawingViewController.swift */; };
 		8E942AE8265B85DA00E9105F /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8E942AE7265B85DA00E9105F /* SqueezeNet.mlmodel */; };
 		8E942AEF265B961D00E9105F /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E942AEE265B961D00E9105F /* Question.swift */; };
 		8E942AF3265BA48E00E9105F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E942AF2265BA48E00E9105F /* ResultViewController.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E942A9B2652797900E9105F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		8E942A9B2652797900E9105F /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		8E942AE7265B85DA00E9105F /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		8E942AEE265B961D00E9105F /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		8E942AF2265BA48E00E9105F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 				9E2EE3A526493BFC0000B6CF /* Assets.xcassets */,
 				9E2EE3A726493BFC0000B6CF /* LaunchScreen.storyboard */,
 				9E2EE3AA26493BFC0000B6CF /* Info.plist */,
-				8E942A9B2652797900E9105F /* TestViewController.swift */,
+				8E942A9B2652797900E9105F /* DrawingViewController.swift */,
 				8E942AEE265B961D00E9105F /* Question.swift */,
 				8E942AF2265BA48E00E9105F /* ResultViewController.swift */,
 			);
@@ -146,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E942A9C2652797900E9105F /* TestViewController.swift in Sources */,
+				8E942A9C2652797900E9105F /* DrawingViewController.swift in Sources */,
 				8E942AE8265B85DA00E9105F /* SqueezeNet.mlmodel in Sources */,
 				9E2EE39D26493BF90000B6CF /* AppDelegate.swift in Sources */,
 				9E2EE39F26493BF90000B6CF /* SceneDelegate.swift in Sources */,
